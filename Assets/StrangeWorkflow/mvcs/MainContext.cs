@@ -1,8 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using strange.extensions.command.api;
 using strange.extensions.command.impl;
 using strange.extensions.context.api;
 using strange.extensions.context.impl;
+
 
 public class MainContext : MVCSContext {
 
@@ -25,7 +27,6 @@ public class MainContext : MVCSContext {
 	override public IContext Start()
 	{
 		base.Start();
-		Debug.Log("Dispatching Signal");
 		StartSignal startSignal = (StartSignal)injectionBinder.GetInstance<StartSignal>();
 		startSignal.Dispatch();
 
@@ -41,7 +42,10 @@ public class MainContext : MVCSContext {
 //			mediationBinder.Bind<CustomViewUI>().To<CustomViewUIMediator>();
 //
 //			//	CONTROLLER 1. (MAPPED COMMANDS) 
-//			commandBinder.Bind<StartSignal>().To<StartCommand>().Once ();
+
+			mediationBinder.Bind<MainMenuView>().To<MainMenuMediator>();
+			commandBinder.Bind<StartSignal>().To<StartCommand>().Once ();
+			commandBinder.Bind<MainMenuLoadedSignal>().To<MainMenuLoadedCommand>();
 //			commandBinder.Bind<AllViewsInitializedSignal>().To<AllViewsInitializedCommand>().Once ();
 //			//
 //			commandBinder.Bind<CustomServiceLoadedSignal>().To<CustomServiceLoadedCommand>();
@@ -55,6 +59,5 @@ public class MainContext : MVCSContext {
 //
 //			//	SERVICE
 //			injectionBinder.Bind<IService>().To<CustomService>().ToSingleton();
-
 	}
 }
