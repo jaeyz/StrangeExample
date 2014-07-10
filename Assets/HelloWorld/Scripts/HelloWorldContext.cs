@@ -13,7 +13,7 @@ public class HelloWorldContext : MVCSContext {
 
 		Debug.Log ("2. Executing Map Bindings");
 
-		injectionBinder.Bind<IPlayer> ().To<PlayerModel> ().ToSingleton();
+		injectionBinder.Bind<IPlayer> ().To<PlayerDataModel> ().ToSingleton();
 		mediationBinder.Bind<HelloWorldView> ().To<HelloWorldMediator> ();
 		commandBinder.Bind (ContextEvent.START).To<HelloWorldCommand> ().Once ();
 
