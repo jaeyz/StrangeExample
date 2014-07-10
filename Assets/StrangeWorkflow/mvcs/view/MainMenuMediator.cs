@@ -13,14 +13,16 @@ public class MainMenuMediator : Mediator
 		[Inject]
 		public MainMenuLoadedSignal mainMenuLoadedSignal { get; set; }
 
-		int randomData = 5;
+		[Inject]
+		public PlayerDataUpdatedSignal playerDataUpdatedSignal { get; set; }
+
+		string playerName = "jose";
 
 		public override void OnRegister()
 		{
-			//
 			Debug.Log("AddingListeners");
 			view.loadMessageClickSignal.AddListener(OnLoadMainMenu);
-//			allViewsInitializedSignal.Dispatch ();
+			playerDataUpdatedSignal.AddListener(UpdatePlayerDataDisplay);
 
 		}
 
@@ -30,7 +32,12 @@ public class MainMenuMediator : Mediator
 
 		}
 		public void OnLoadMainMenu(){
-			mainMenuLoadedSignal.Dispatch(view,randomData);
+			mainMenuLoadedSignal.Dispatch(view,playerName);
+
+		}
+
+		void UpdatePlayerDataDisplay(){
+			Debug.Log("Updating Player Data Display");
 
 		}
 

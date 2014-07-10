@@ -43,9 +43,13 @@ public class MainContext : MVCSContext {
 //
 //			//	CONTROLLER 1. (MAPPED COMMANDS) 
 
+			injectionBinder.Bind<IPlayerModel>().To<PlayerDataModel>().ToSingleton();
 			mediationBinder.Bind<MainMenuView>().To<MainMenuMediator>();
+			mediationBinder.Bind<MainMenuTestView>().To<MainMenuMediator>();
 			commandBinder.Bind<StartSignal>().To<StartCommand>().Once ();
 			commandBinder.Bind<MainMenuLoadedSignal>().To<MainMenuLoadedCommand>();
+
+			injectionBinder.Bind<PlayerDataUpdatedSignal>().ToSingleton();
 //			commandBinder.Bind<AllViewsInitializedSignal>().To<AllViewsInitializedCommand>().Once ();
 //			//
 //			commandBinder.Bind<CustomServiceLoadedSignal>().To<CustomServiceLoadedCommand>();
@@ -54,8 +58,7 @@ public class MainContext : MVCSContext {
 //
 //
 //
-//			//	CONTROLLER 2. (INJECTED SIGNALS)
-//			injectionBinder.Bind<GameListUpdatedSignal>().ToSingleton();
+
 //
 //			//	SERVICE
 //			injectionBinder.Bind<IService>().To<CustomService>().ToSingleton();
