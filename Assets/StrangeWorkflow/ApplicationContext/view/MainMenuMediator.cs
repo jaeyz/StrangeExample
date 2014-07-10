@@ -37,7 +37,7 @@ public class MainMenuMediator : Mediator
 		}
 
 		void UpdatePlayerDataDisplay(){
-			Debug.Log("Updating Player Data Display");
+			//UpdatePlayerDisplay
 		}
 
 }

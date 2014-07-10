@@ -2,11 +2,11 @@
 using System.Collections;
 using strange.extensions.context.impl;
 
-public class MainRoot : ContextView {
+public class ApplicationRoot : ContextView {
 
 	void Awake ()
 	{
-		context = new MainContext(this,true);
+		context = new ApplicationContext(this,true);
 		context.Start();
 	}
 }
