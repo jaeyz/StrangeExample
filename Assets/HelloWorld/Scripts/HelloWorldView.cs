@@ -14,8 +14,8 @@ public class HelloWorldView : View {
 
 	void Update() {
 		if (Input.GetKeyUp (KeyCode.KeypadEnter)) {
-			if (signal != null)
-				signal.Dispatch ();
+			//if (signal != null)
+			//	signal.Dispatch ();
 		}
 	}
 
