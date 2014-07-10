@@ -6,7 +6,6 @@ using strange.extensions.mediation.impl;
 
 public class MainMenuMediator : Mediator
 {
-
 		[Inject]
 		public MainMenuView view{ get; set;}
 
@@ -17,28 +16,28 @@ public class MainMenuMediator : Mediator
 		public PlayerDataUpdatedSignal playerDataUpdatedSignal { get; set; }
 
 		string playerName = "jose";
+		int playerLevel = 1;
 
 		public override void OnRegister()
 		{
 			Debug.Log("AddingListeners");
-			view.loadMessageClickSignal.AddListener(OnLoadMainMenu);
+			view.mainMenuLoadedSignal.AddListener(OnLoadMainMenu);
 			playerDataUpdatedSignal.AddListener(UpdatePlayerDataDisplay);
 
 		}
 
 		public override void OnRemove ()
 		{
-			view.loadMessageClickSignal.RemoveListener(OnLoadMainMenu);
+			view.mainMenuLoadedSignal.RemoveListener(OnLoadMainMenu);
 
 		}
 		public void OnLoadMainMenu(){
-			mainMenuLoadedSignal.Dispatch(view,playerName);
+			mainMenuLoadedSignal.Dispatch(view,playerName,playerLevel);
 
 		}
 
 		void UpdatePlayerDataDisplay(){
 			Debug.Log("Updating Player Data Display");
-
 		}
 
 }

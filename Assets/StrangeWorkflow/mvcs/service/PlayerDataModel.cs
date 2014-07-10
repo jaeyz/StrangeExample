@@ -11,7 +11,21 @@ public class PlayerDataModel : IPlayerModel
 				set {
 						if (_playerName != value) {
 							_playerName = value;
-							Debug.Log("Updated player name");
+							playerDataUpdatedSignal.Dispatch();
+						}
+				}
+
+
+		}
+
+		private int _playerLevel;
+		public int playerLevel {
+				get {
+						return _playerLevel;
+				}
+				set {
+						if (_playerLevel != value) {
+							_playerLevel = value;
 							playerDataUpdatedSignal.Dispatch();
 						}
 				}

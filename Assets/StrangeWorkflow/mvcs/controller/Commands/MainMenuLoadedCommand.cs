@@ -11,12 +11,14 @@ public class MainMenuLoadedCommand : Command
 	public string playerName { get; set; }
 
 	[Inject]
+	public int playerLevel {get; set;}
+
+	[Inject]
 	public IPlayerModel iPlayerModel {get; set;}
 
 	public override void Execute()
 	{
-		Debug.Log ("Do this stuff here, parameters taken from mainmenuview");
-		Debug.Log("Player name changed to" + playerName);
 		iPlayerModel.playerName = playerName;
+		iPlayerModel.playerLevel = playerLevel;
 	}
 }
