@@ -3,8 +3,11 @@ using System.Collections;
 
 public class CustomButton : MonoBehaviour {
 
-	void OnClick() {
+	public System.Action buttonClicked;
 
+	void OnClick() {
+		if (buttonClicked != null)
+			buttonClicked ();
 	}
 		
 

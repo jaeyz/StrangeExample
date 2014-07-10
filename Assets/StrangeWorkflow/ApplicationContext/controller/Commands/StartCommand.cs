@@ -13,8 +13,14 @@ public class StartCommand : Command  {
 
 	public override void Execute()
 	{
+		//Add the scene switcher utility.
+		GameObject go = new GameObject ();
+		go.name = "SceneSwitcher";
+		go.transform.parent = contextView.transform;
+		go.AddComponent<SceneChanger> ();
+
 		//Bootstrapping phase
 		//Load player context since we'll need it for all screens.
-		sceneChangeSignal.Dispatch("playerscene",null);
+		//sceneChangeSignal.Dispatch("playerscene",null);
 	}
 }
