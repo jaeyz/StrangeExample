@@ -2,7 +2,7 @@
 using strange.extensions.command.impl;
 using strange.extensions.context.api;
 
-public class StartCommand : Command  {
+public class PlayerStartCommand : Command  {
 
 
 	[Inject(ContextKeys.CONTEXT_VIEW)]
@@ -13,11 +13,9 @@ public class StartCommand : Command  {
 
 	public override void Execute()
 	{
-		//Bootstrapping phase
-		//Load player context since we'll need it for all screens.
-		//Temporary gameobject to simulate ui destroy
 		GameObject go = new GameObject();
-		sceneChangeSignal.Dispatch("playerscene",go);
-//		sceneChangeSignal.Dispatch("mainmenuscene",go);
+		go.name = "PlayerInfoView";
+		go.AddComponent<PlayerInfoView>();
+		go.transform.parent = contextView.transform;
 	}
 }

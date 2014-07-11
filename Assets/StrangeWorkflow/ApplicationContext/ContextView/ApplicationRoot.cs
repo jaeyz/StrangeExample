@@ -6,7 +6,8 @@ public class ApplicationRoot : ContextView {
 
 	void Awake ()
 	{
-		context = new ApplicationContext(this,true);
+		NGUIDebug.Log("Application Context Loaded");
+		context = new ApplicationContext(this,false);
 		context.Start();
 	}
 }

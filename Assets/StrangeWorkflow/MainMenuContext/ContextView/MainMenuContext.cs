@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerRoot : MonoBehaviour {
+public class MainMenuContext : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

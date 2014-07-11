@@ -2,7 +2,9 @@
 using System.Collections;
 using strange.extensions.signal.impl;
 
-public class PlayerDataUpdatedSignal : Signal {
-	
+public class PlayerStartSignal : Signal {
 
+	public PlayerStartSignal ()
+	{
+	}
 }
