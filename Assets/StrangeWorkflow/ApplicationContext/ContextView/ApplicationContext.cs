@@ -34,7 +34,7 @@ public class ApplicationContext : MVCSContext {
 
 	protected override void mapBindings()
 	{
-			injectionBinder.Bind<PlayerDataUpdatedSignal>().ToSingleton().CrossContext;
+			injectionBinder.Bind<PlayerDataUpdatedSignal>().ToSingleton().CrossContext();
 			injectionBinder.Bind<IPlayerModel>().To<PlayerDataModel>().ToSingleton().CrossContext();
 			injectionBinder.Bind<SceneChangeSignal>().ToSingleton().CrossContext();
 
